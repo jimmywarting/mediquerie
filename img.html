@@ -1,0 +1,21 @@
+<!doctype html>
+<html ng-app="plunker" >
+<head>
+	<meta charset="utf-8">
+	<title>AngularJS template with media query!</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.js"></script>
+	<script src="js/app.js"></script>
+	<script src="js/media.js"></script>
+</head>
+<body>
+
+	<!-- the media directive is more prioritized then ng-src, so first "media directive" check the queries
+	attribute - if it dosen't match the query, the element will turn out to a comment
+	(works while resizeing the browser) -->
+
+	<img ng-src="http://dummyimage.com/400x300/b500b5/fff" media="screen and (max-width: 767px)">
+	<img ng-src="http://dummyimage.com/800x300/b500b5/fff" media="screen and (min-width: 768px) and (max-width: 1024px)">
+	<img ng-src="http://dummyimage.com/1024x624/b500b5/fff" media="screen and (min-width: 1024px)">
+
+</body>
+</html>

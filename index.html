@@ -1,0 +1,44 @@
+<!doctype html>
+<html ng-app="plunker" >
+<head>
+	<meta charset="utf-8">
+	<title>AngularJS template with media query!</title>
+</head>
+<body ng-controller="MainCtrl">
+
+	<!-- the media directive is more prioritized then ng-include, so first "media directive" check the queries
+	attribute - if it dosen't match the query, the element will turn out to a comment
+	(works while resizeing the browser) -->
+
+	<!--
+	1) first the media directive convert every element with media-attr to a comment
+	2) when a media query match the screen it will put the element back
+	3) angularjs re-render that particular DOM
+	4) angularjs sees a ng-include directive and download the template if it has not already done so
+	5) angularjs append the template eiteher from memory or from a ajax call
+	-->
+
+	<div ng-include="'tpl/mobile/listpage.html'" media="screen and (max-width: 767px)"></div>
+	<div ng-include="'tpl/tablet/listpage.html'" media="screen and (min-width: 768px) and (max-width: 979px)"></div>
+	<div ng-include="'tpl/normal/listpage.html'" media="screen and (min-width: 980px)"></div>
+
+	<!-- <input type="submit" media="screen and (min-width: 980px)" /> -->
+	<button  media="screen and (min-width: 980px)">sample</button>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular.js"></script>
+	<script src="js/app.js"></script>
+	<script src="js/media.js"></script>
+
+</body>
+</html>
+
+<!--
+	this particular example was made when byggmax wanted to display diffrent things on diffrent devices over at:
+	http://www.byggmax.com/se-sv/byggvaror/altan-tradgard/impregnerat-virke
+
+	so insted of loading all html data i figure "hey why not use the same json data, only diffrent is the template"
+	css alone can't do all fancy stuff like turing a table into a neat lite user friendly table without displaying
+	two/three tabels on all decice and toggle the display
+
+	the json data can be found in app.js
+-->

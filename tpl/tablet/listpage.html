@@ -1,0 +1,13 @@
+tablet
+<table border="1">
+	<tr ng-repeat="prod in productList">
+		<td>name: {{prod.name}}</td>
+
+		<td>
+			<span ng-show="prod.inStock">{{prod.inStock}} antal</span>
+			<span ng-hide="prod.inStock">slut i lager <button>Notifiera mig</button></span>
+		</td>
+
+		<td>price: {{prod.price}}</td>
+	</tr>
+</table>
